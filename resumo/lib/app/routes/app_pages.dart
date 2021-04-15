@@ -1,18 +1,17 @@
 import 'package:get/get.dart';
 
-import 'package:resumo/app/modules/guideline/bindings/guideline_binding.dart';
-import 'package:resumo/app/modules/guideline/views/guideline_view.dart';
-import 'package:resumo/app/modules/login/bindings/login_binding.dart';
-import 'package:resumo/app/modules/login/views/login_view.dart';
-import 'package:resumo/app/modules/login_email/bindings/login_email_binding.dart';
-import 'package:resumo/app/modules/login_email/views/login_email_view.dart';
-import 'package:resumo/app/modules/verify_code_from_email/bindings/verify_code_from_email_binding.dart';
-import 'package:resumo/app/modules/verify_code_from_email/views/verify_code_from_email_view.dart';
-
+import '../modules/guideline/bindings/guideline_binding.dart';
+import '../modules/guideline/views/guideline_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/initial/bindings/initial_binding.dart';
 import '../modules/initial/views/initial_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
+import '../modules/login_email/bindings/login_email_binding.dart';
+import '../modules/login_email/views/login_email_view.dart';
+import '../modules/verify_code_from_email/bindings/verify_code_from_email_binding.dart';
+import '../modules/verify_code_from_email/views/verify_code_from_email_view.dart';
 
 part 'app_routes.dart';
 
