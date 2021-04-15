@@ -23,7 +23,7 @@ class InitialController extends GetxController {
   login() async {
     final token = await Preference.getToken();
     if (token.isEmpty)
-      Get.offAndToNamed(Routes.HOME);
+      Get.offAndToNamed(Routes.GUIDELINE);
     else
       Get.offAndToNamed(Routes.HOME);
   }

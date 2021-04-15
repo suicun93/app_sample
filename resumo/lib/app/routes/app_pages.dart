@@ -1,7 +1,13 @@
 import 'package:get/get.dart';
 
+import 'package:resumo/app/modules/guideline/bindings/guideline_binding.dart';
+import 'package:resumo/app/modules/guideline/views/guideline_view.dart';
+import 'package:resumo/app/modules/login/bindings/login_binding.dart';
+import 'package:resumo/app/modules/login/views/login_view.dart';
 import 'package:resumo/app/modules/login_email/bindings/login_email_binding.dart';
 import 'package:resumo/app/modules/login_email/views/login_email_view.dart';
+import 'package:resumo/app/modules/verify_code_from_email/bindings/verify_code_from_email_binding.dart';
+import 'package:resumo/app/modules/verify_code_from_email/views/verify_code_from_email_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -25,9 +31,24 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
+      name: _Paths.LOGIN,
+      page: () => LoginView(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
       name: _Paths.LOGIN_EMAIL,
       page: () => LoginEmailView(),
       binding: LoginEmailBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFY_CODE_FROM_EMAIL,
+      page: () => VerifyCodeFromEmailView(),
+      binding: VerifyCodeFromEmailBinding(),
+    ),
+    GetPage(
+      name: _Paths.GUIDELINE,
+      page: () => GuidelineView(),
+      binding: GuidelineBinding(),
     ),
   ];
 }

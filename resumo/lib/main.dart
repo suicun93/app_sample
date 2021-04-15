@@ -26,7 +26,17 @@ main() async {
         primaryColorBrightness: Brightness.dark,
         colorScheme: ColorScheme.light(primary: primaryColor),
         appBarTheme: AppBarTheme(
-          brightness: Brightness.dark,
+          brightness: Brightness.light,
+          color: Color(0xfff7f7f7),
+          centerTitle: true,
+          iconTheme: IconThemeData(color: Colors.black),
+          textTheme: TextTheme(
+            title: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          elevation: 0,
         ),
       ),
     ),

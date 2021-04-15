@@ -15,8 +15,8 @@ enum Environment { PRODUCTION, TEST, DEV }
 const currentEnvironment = Environment.DEV;
 
 get endpointApi => currentEnvironment == Environment.PRODUCTION
-    ? 'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net'
-    : 'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net';
+    ? 'http://resumo.leo-system.com/api/'
+    : 'http://172.20.10.2/api/';
 
 // App primary color
 const Color primaryColor = Color.fromRGBO(255, 220, 63, 1);
