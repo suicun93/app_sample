@@ -1,11 +1,20 @@
-import 'package:get/get.dart';
+import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+
+import '../../../common/toast.dart';
 import '../../../routes/app_pages.dart';
 
-class LoginController extends GetxController {
-  final phoneNumber = ''.obs;
+class VerifyCodeFromPhoneRegisterController extends GetxController {
   final error = ''.obs;
+  final code = ''.obs;
   final ready = true.obs;
+  final count = 60.obs;
+  // ignore: close_sinks
+  final errorController = StreamController<ErrorAnimationType>();
+  TextEditingController textEditingController = TextEditingController();
 
   @override
   void onInit() {
@@ -15,16 +24,19 @@ class LoginController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    countDown();
   }
 
   @override
   void onClose() {}
 
-  toLoginEmail() {
-    Get.toNamed(Routes.LOGIN_EMAIL);
+  void countDown() async {
+    do {
+      await Future.delayed(Duration(seconds: 1), () => count.value--);
+    } while (count.value > 0);
   }
 
-  sendOTP() async {
+  confirmCode() async {
     ready.value = false;
     error.value = '';
     // final response = await provider.checkEmailExist(email.value);
@@ -44,14 +56,12 @@ class LoginController extends GetxController {
     // }
 
     if (false) {
-      error.value = 'エラー　メッセンジャー';
+      error.value = 'Sai passcode';
+      toast(content: error.value);
       return;
     }
 
     // Success => Add all new services vao list
-    if (false)
-      Get.toNamed(Routes.VERIFY_CODE_FROM_PHONE_REGISTER);
-    else
-      Get.toNamed(Routes.VERIFY_CODE_FROM_PHONE_NOT_REGISTER);
+    Get.offAllNamed(Routes.HOME);
   }
 }

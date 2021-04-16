@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:resumo/app/views/views/loading_view.dart';
 
 import '../../../common/const.dart';
-import '../../../common/toast.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -30,14 +31,27 @@ class LoginView extends GetView<LoginController> {
               SizedBox(height: 30),
               TextFormField(
                 onChanged: (value) => controller.phoneNumber.value = value,
+                enabled: controller.ready.value,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1.5,
+                    ),
+                  ),
                   hintText: '携帯電話番号',
                   hintStyle: TextStyle(color: Colors.black26),
                 ),
               ),
               SizedBox(height: 30),
-              controller.phoneNumber.value.isPhoneNumber
+              !controller.phoneNumber.value.isNotEmpty ||
+                      controller.phoneNumber.value.isPhoneNumber
                   ? Container()
                   : Padding(
                       padding: const EdgeInsets.only(bottom: 30),
@@ -46,14 +60,54 @@ class LoginView extends GetView<LoginController> {
                         style: TextStyle(color: Colors.pink),
                       ),
                     ),
-              FlatButton(
-                disabledColor: primaryColor.withAlpha(100),
-                color: primaryColor,
-                height: 50,
-                child: Text('認証コードを送信する'),
-                onPressed: !controller.phoneNumber.value.isPhoneNumber
-                    ? null
-                    : () => toast(content: 'Chua lam'),
+              InkWell(
+                onTap: (controller.ready.value &&
+                        controller.phoneNumber.value.isPhoneNumber)
+                    ? () => Get.dialog(
+                          CupertinoAlertDialog(
+                            title: Text(controller.phoneNumber.value),
+                            content: Column(
+                              children: [
+                                SizedBox(height: 15),
+                                Text('上記のメールアドレスに 認証コードが送信されます。'),
+                                SizedBox(height: 10),
+                              ],
+                            ),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: Text('キャンセル'),
+                                onPressed: () => Get.back(),
+                              ),
+                              CupertinoDialogAction(
+                                child: Text('送る'),
+                                onPressed: () async => {
+                                  Get.back(),
+                                  await controller.sendOTP(),
+                                },
+                              ),
+                            ],
+                          ),
+                        )
+                    : null,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: (controller.ready.value &&
+                            controller.phoneNumber.value.isPhoneNumber)
+                        ? primaryColor
+                        : primaryColor.withAlpha(100),
+                  ),
+                  height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Text('認証コードを送信する'),
+                      controller.ready.value
+                          ? Container()
+                          : LoadingWidget(mini: true),
+                    ],
+                  ),
+                ),
               ),
               SizedBox(height: 30),
               true
@@ -67,12 +121,28 @@ class LoginView extends GetView<LoginController> {
                     ),
               Text('すでに会員登録されている、または携帯番号を変更された方'),
               SizedBox(height: 30),
-              FlatButton(
-                disabledColor: primaryColor.withAlpha(100),
-                color: primaryColor,
-                height: 50,
-                child: Text('メールアドレスを入力する'),
-                onPressed: () => controller.toLoginEmail(),
+              InkWell(
+                onTap: controller.ready.value
+                    ? () => controller.toLoginEmail()
+                    : null,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: controller.ready.value
+                        ? primaryColor
+                        : primaryColor.withAlpha(100),
+                  ),
+                  height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Text('メールアドレスを入力する'),
+                      controller.ready.value
+                          ? Container()
+                          : LoadingWidget(mini: true),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

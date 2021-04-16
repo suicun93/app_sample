@@ -1,8 +1,12 @@
 import 'package:get/get.dart';
-import 'package:resumo/app/common/preferences.dart';
-import 'package:resumo/app/modules/home/views/camera/views/camera_view.dart';
-import 'package:resumo/app/modules/home/views/home_main/views/home_main_view.dart';
-import 'package:resumo/app/routes/app_pages.dart';
+
+import '../../../common/preferences.dart';
+import '../../../routes/app_pages.dart';
+import '../views/camera/views/camera_view.dart';
+import '../views/gym/views/gym_view.dart';
+import '../views/home_main/views/home_main_view.dart';
+import '../views/personal/views/personal_view.dart';
+import '../views/youtube/views/youtube_view.dart';
 
 class HomeController extends GetxController {
   final username = ''.obs;
@@ -27,7 +31,7 @@ class HomeController extends GetxController {
   void onClose() {}
 
   loadAdminInfo() async {
-    changeMainView(MainView.CAMERA);
+    changeMainView(MainView.HOME);
     ready.value = true;
   }
 
@@ -43,13 +47,13 @@ class HomeController extends GetxController {
         mainView.value = HomeMainView();
         break;
       case MainView.YOUTUBE:
-        mainView.value = CameraView();
+        mainView.value = YoutubeView();
         break;
       case MainView.GYM:
-        mainView.value = CameraView();
+        mainView.value = GymView();
         break;
       case MainView.PERSONAL:
-        mainView.value = CameraView();
+        mainView.value = PersonalView();
         break;
     }
   }

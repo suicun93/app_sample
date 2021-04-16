@@ -8,6 +8,11 @@ abstract class Routes {
   static const LOGIN_EMAIL = _Paths.LOGIN_EMAIL;
   static const VERIFY_CODE_FROM_EMAIL = _Paths.VERIFY_CODE_FROM_EMAIL;
   static const GUIDELINE = _Paths.GUIDELINE;
+  static const VERIFY_CODE_FROM_PHONE_REGISTER =
+      _Paths.VERIFY_CODE_FROM_PHONE_REGISTER;
+  static const VERIFY_CODE_FROM_PHONE_NOT_REGISTER =
+      _Paths.VERIFY_CODE_FROM_PHONE_NOT_REGISTER;
+  static const REGISTER = _Paths.REGISTER;
 }
 
 abstract class _Paths {
@@ -17,4 +22,9 @@ abstract class _Paths {
   static const LOGIN_EMAIL = '/login-email';
   static const VERIFY_CODE_FROM_EMAIL = '/verify-code-from-email';
   static const GUIDELINE = '/guideline';
+  static const VERIFY_CODE_FROM_PHONE_REGISTER =
+      '/verify-code-from-phone-register';
+  static const VERIFY_CODE_FROM_PHONE_NOT_REGISTER =
+      '/verify-code-from-phone-not-register';
+  static const REGISTER = '/register';
 }

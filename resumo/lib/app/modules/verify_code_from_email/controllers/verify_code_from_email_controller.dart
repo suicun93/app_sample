@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:resumo/app/common/toast.dart';
-import 'package:resumo/app/routes/app_pages.dart';
 
 import '../../../common/my_getx_controller.dart';
+import '../../../common/toast.dart';
+import '../../../routes/app_pages.dart';
 import '../data/verify_code_from_email_provider.dart';
 
 class VerifyCodeFromEmailController

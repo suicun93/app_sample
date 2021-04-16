@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
-import '../controllers/guideline_controller.dart';
+import '../controllers/register_controller.dart';
 
-class GuidelineView extends GetView<GuidelineController> {
+class RegisterView extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Man hinh Guideline'),
+        title: Text('RegisterView'),
+        centerTitle: true,
       ),
       body: Center(
         child: RaisedButton(
-          onPressed: () async => Get.offAndToNamed(Routes.LOGIN),
+          onPressed: () => Get.offAllNamed(Routes.HOME),
           child: Text(
-            'ログイン画面に行く',
+            'ホーム画面に行く',
+            style: TextStyle(fontSize: 20),
           ),
         ),
       ),

@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../views/views/loading_view.dart';
-import '../controllers/verify_code_from_email_controller.dart';
+import '../controllers/verify_code_from_phone_not_register_controller.dart';
 
-class VerifyCodeFromEmailView extends GetView<VerifyCodeFromEmailController> {
+class VerifyCodeFromPhoneNotRegisterView
+    extends GetView<VerifyCodeFromPhoneNotRegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

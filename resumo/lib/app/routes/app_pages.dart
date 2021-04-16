@@ -1,5 +1,12 @@
 import 'package:get/get.dart';
 
+import 'package:resumo/app/modules/register/bindings/register_binding.dart';
+import 'package:resumo/app/modules/register/views/register_view.dart';
+import 'package:resumo/app/modules/verify_code_from_phone_not_register/bindings/verify_code_from_phone_not_register_binding.dart';
+import 'package:resumo/app/modules/verify_code_from_phone_not_register/views/verify_code_from_phone_not_register_view.dart';
+import 'package:resumo/app/modules/verify_code_from_phone_register/bindings/verify_code_from_phone_register_binding.dart';
+import 'package:resumo/app/modules/verify_code_from_phone_register/views/verify_code_from_phone_register_view.dart';
+
 import '../modules/guideline/bindings/guideline_binding.dart';
 import '../modules/guideline/views/guideline_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -48,6 +55,21 @@ class AppPages {
       name: _Paths.GUIDELINE,
       page: () => GuidelineView(),
       binding: GuidelineBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFY_CODE_FROM_PHONE_REGISTER,
+      page: () => VerifyCodeFromPhoneRegisterView(),
+      binding: VerifyCodeFromPhoneRegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFY_CODE_FROM_PHONE_NOT_REGISTER,
+      page: () => VerifyCodeFromPhoneNotRegisterView(),
+      binding: VerifyCodeFromPhoneNotRegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER,
+      page: () => RegisterView(),
+      binding: RegisterBinding(),
     ),
   ];
 }

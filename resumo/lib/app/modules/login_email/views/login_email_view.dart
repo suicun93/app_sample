@@ -31,14 +31,28 @@ class LoginEmailView extends GetView<LoginEmailController> {
               SizedBox(height: 30),
               TextFormField(
                 onChanged: (email) => controller.email.value = email,
+                enabled: controller.ready.value,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1.5,
+                    ),
+                  ),
                   hintText: 'メールアドレス',
                   hintStyle: TextStyle(color: Colors.black26),
                 ),
               ),
               SizedBox(height: 30),
-              controller.email.value.isEmail && controller.error.value.isEmpty
+              controller.email.value.isEmpty ||
+                      (controller.email.value.isEmail &&
+                          controller.error.value.isEmpty)
                   ? Container()
                   : InkWell(
                       onTap: controller.error.value.isEmpty
