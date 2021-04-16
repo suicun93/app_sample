@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:resumo/app/views/views/loading_view.dart';
 
+import '../../../views/views/loading_view.dart';
 import '../controllers/verify_code_from_phone_register_controller.dart';
 
 class VerifyCodeFromPhoneRegisterView

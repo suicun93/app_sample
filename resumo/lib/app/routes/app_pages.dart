@@ -1,12 +1,5 @@
 import 'package:get/get.dart';
 
-import 'package:resumo/app/modules/register/bindings/register_binding.dart';
-import 'package:resumo/app/modules/register/views/register_view.dart';
-import 'package:resumo/app/modules/verify_code_from_phone_not_register/bindings/verify_code_from_phone_not_register_binding.dart';
-import 'package:resumo/app/modules/verify_code_from_phone_not_register/views/verify_code_from_phone_not_register_view.dart';
-import 'package:resumo/app/modules/verify_code_from_phone_register/bindings/verify_code_from_phone_register_binding.dart';
-import 'package:resumo/app/modules/verify_code_from_phone_register/views/verify_code_from_phone_register_view.dart';
-
 import '../modules/guideline/bindings/guideline_binding.dart';
 import '../modules/guideline/views/guideline_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -17,8 +10,14 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/login_email/bindings/login_email_binding.dart';
 import '../modules/login_email/views/login_email_view.dart';
+import '../modules/register/bindings/register_binding.dart';
+import '../modules/register/views/register_view.dart';
 import '../modules/verify_code_from_email/bindings/verify_code_from_email_binding.dart';
 import '../modules/verify_code_from_email/views/verify_code_from_email_view.dart';
+import '../modules/verify_code_from_phone_not_register/bindings/verify_code_from_phone_not_register_binding.dart';
+import '../modules/verify_code_from_phone_not_register/views/verify_code_from_phone_not_register_view.dart';
+import '../modules/verify_code_from_phone_register/bindings/verify_code_from_phone_register_binding.dart';
+import '../modules/verify_code_from_phone_register/views/verify_code_from_phone_register_view.dart';
 
 part 'app_routes.dart';
 
